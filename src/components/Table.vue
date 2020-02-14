@@ -5,7 +5,7 @@
     <v-data-table
         :headers="TableHeaders"
         :items="movies"
-        class="elevation-1"
+
     />
     </div>
 </template>
@@ -53,19 +53,6 @@ export default {
       }
     }
   }
-/* data: () => {
-    return {
-      headers:
-      [
-        {
-          text: 'Index',
-          align: 'left',
-          sortable: 'false',
-          value:
-        }
-      ]
-    }
-  } */
 }
 </script>
 
