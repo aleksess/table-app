@@ -1,7 +1,8 @@
 <template>
-<div>
-  <router-link to="Home" />
-  <router-view />
+<div id="app">
+  <v-app>
+    <router-view />
+  </v-app>
 </div>
 </template>
 

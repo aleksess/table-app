@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <v-container>
     <Table />
-  </div>
+  </v-container>
 </template>
 
 <script>

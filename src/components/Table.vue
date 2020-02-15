@@ -1,13 +1,19 @@
 <template>
-    <div>
-    <input type="text" placeholder="Podaj film" @keyup.enter="HandleClick" v-model="inputField"/>
-    <button v-on:click="HandleClick">Add a movie</button>
-    <v-data-table
-        :headers="TableHeaders"
-        :items="movies"
-
-    />
-    </div>
+  <v-card>
+    <v-row align="center" justify="center">
+      <v-col cols="6" xs="6">
+        <v-text-field @keyup.enter="HandleClick" label="Type in title" v-model="inputField"></v-text-field>
+      </v-col>
+      <v-col cols="6">
+        <v-btn width="100%" @click="HandleClick">Search movies</v-btn>
+      </v-col>
+    </v-row>
+    <v-row :align="center" :justify="center">
+      <v-col cols="12">
+        <v-data-table :headers="TableHeaders" :items="movies" />
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
@@ -44,7 +50,9 @@ export default {
     HandleClick () {
       if (this.inputField !== '') {
         const myFetch = async () => {
-          const response = await fetch(`http://api.tvmaze.com/search/shows?q=${this.inputField}`)
+          const response = await fetch(
+            `http://api.tvmaze.com/search/shows?q=${this.inputField}`
+          )
           const responseParsed = await response.json()
           console.log(responseParsed)
           this.movies = responseParsed
@@ -55,13 +63,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-    input{
-        border: 1px solid black;
-    }
-    button{
-        border: 1px black solid;
-
-    }
-</style>
