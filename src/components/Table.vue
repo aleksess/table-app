@@ -1,14 +1,14 @@
 <template>
-  <v-card>
+  <v-card class="pa-10">
     <v-row align="center" justify="center">
-      <v-col cols="6" xs="6">
-        <v-text-field @keyup.enter="HandleClick" label="Type in title" v-model="inputField"></v-text-field>
+      <v-col cols="12" md="6">
+        <v-text-field @keyup.enter="HandleClick" label="Title" v-model="inputField"></v-text-field>
       </v-col>
-      <v-col cols="6">
-        <v-btn width="100%" @click="HandleClick">Search movies</v-btn>
+      <v-col cols="auto">
+        <v-btn color="primary" @click="HandleClick"> <v-icon>mdi-magnify</v-icon>  Search movies</v-btn>
       </v-col>
     </v-row>
-    <v-row :align="center" :justify="center">
+    <v-row align="center" justify="center">
       <v-col cols="12">
         <v-data-table :headers="TableHeaders" :items="movies" />
       </v-col>
@@ -25,9 +25,7 @@ export default {
       TableHeaders: [
         {
           text: 'Title',
-          align: 'left',
           sortable: false,
-          // eslint-disable-next-line no-undef
           value: 'show.name'
         },
         {
