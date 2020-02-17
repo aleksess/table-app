@@ -13,6 +13,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async downloadMovies (context, title) {
+      const response = await fetch(
+        `http://api.tvmaze.com/search/shows?q=${title}`
+      )
+      const responseParsed = await response.json()
+      context.commit('setMovies', responseParsed)
+    }
   },
   modules: {
   }

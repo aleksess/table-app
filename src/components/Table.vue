@@ -51,15 +51,7 @@ export default {
   methods: {
     HandleClick () {
       if (this.inputField !== '') {
-        const myFetch = async () => {
-          const response = await fetch(
-            `http://api.tvmaze.com/search/shows?q=${this.inputField}`
-          )
-          const responseParsed = await response.json()
-          console.log(responseParsed)
-          this.$store.commit('setMovies', responseParsed)
-        }
-        myFetch()
+        this.$store.dispatch('downloadMovies', this.inputField)
       }
     }
   }
