@@ -10,7 +10,7 @@
     </v-row>
     <v-row align="center" justify="center">
       <v-col cols="12">
-        <v-data-table :headers="TableHeaders" :items="movies" />
+        <v-data-table :headers="TableHeaders" :items="$store.state.SMovies" />
       </v-col>
     </v-row>
   </v-card>
@@ -40,8 +40,7 @@ export default {
           text: 'Release Date',
           value: 'show.premiered'
         }
-      ],
-      movies: []
+      ]
     }
   },
   methods: {
@@ -53,7 +52,7 @@ export default {
           )
           const responseParsed = await response.json()
           console.log(responseParsed)
-          this.movies = responseParsed
+          this.$store.commit('setMovies', responseParsed)
         }
         myFetch()
       }
