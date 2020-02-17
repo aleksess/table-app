@@ -10,7 +10,7 @@
     </v-row>
     <v-row align="center" justify="center">
       <v-col cols="12">
-        <v-data-table :headers="TableHeaders" :items="$store.state.SMovies" />
+        <v-data-table :headers="TableHeaders" :items="Movies" />
       </v-col>
     </v-row>
   </v-card>
@@ -19,6 +19,11 @@
 <script>
 export default {
   name: 'Table',
+  computed: {
+    Movies () {
+      return this.$store.state.SMovies
+    }
+  },
   data: function () {
     return {
       inputField: '',
