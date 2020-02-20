@@ -21,7 +21,7 @@ export default {
   name: 'Table',
   computed: {
     Movies () {
-      return this.$store.state.SMovies
+      return this.$store.state.Movies.Movies
     }
   },
   data: function () {

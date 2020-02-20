@@ -1,26 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Movies from './modules/Movies'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    SMovies: []
-  },
-  mutations: {
-    setMovies (state, payload) {
-      state.SMovies = payload
-    }
-  },
-  actions: {
-    async downloadMovies (context, title) {
-      const response = await fetch(
-        `http://api.tvmaze.com/search/shows?q=${title}`
-      )
-      const responseParsed = await response.json()
-      context.commit('setMovies', responseParsed)
-    }
-  },
+  state: {},
+  mutations: {},
+  actions: {},
   modules: {
+    Movies
   }
 })
